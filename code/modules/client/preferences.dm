@@ -15,7 +15,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/path
 	var/clientckey
 	var/default_slot = 1				//Holder so it doesn't default to slot 1, rather the last one used
-	var/max_save_slots = 8
+	var/max_save_slots = 27
 
 	//non-preference stuff
 	var/muted = 0
@@ -1354,6 +1354,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(jobban_isbanned(user, rank))
 				HTML += "<font color=red>[rank]</font></td><td><a href='?_src_=prefs;jobbancheck=[rank]'> BANNED</a></td></tr>"
 				continue
+/*
 			//Hyperstation Edit - Whitelisted roles
 			if((rank in GLOB.silly_positions) && (!sillyroles))
 				HTML += "<font color=red>[rank]</font></td><td><font color=orange> \[WHITELIST]</font></td></tr>"
@@ -1365,6 +1366,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				HTML += "<font color=red>[rank]</font></td><td><font color=orange> \[WHITELIST]</font></td></tr>"
 				continue
 			//Hyperstation Edit end
+*/
 			var/required_playtime_remaining = job.required_playtime_remaining(user.client)
 			if(required_playtime_remaining)
 				HTML += "<font color=red>[rank]</font></td><td><font color=red> \[ [get_exp_format(required_playtime_remaining)] as [job.get_exp_req_type()] \] </font></td></tr>"
